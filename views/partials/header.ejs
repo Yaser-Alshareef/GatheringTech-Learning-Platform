@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <header class="d-flex flex-wrap align-items-center justify-content-between py-3 mb-4">
+   <a href="/" class="fs-1 fw-bold text-decoration-none brand-gradient">
+  GatheringTech
+  </a>
+
+    <ul class="nav">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li><a href="/courses" class="nav-link">Courses</a></li>
+      <li><a href="/dashboard" class="nav-link">My Notes</a></li>
+      <li><a href="/community" class="nav-link">Community</a></li>
+    </ul>
+
+    <div class="text-end">
+      <% if (!user) { %>
+        <a href="/auth/google" class="btn btn-primary">Sign In</a>
+      <% } else { %>
+        <div class="d-flex align-items-center gap-3">
+          <% if (user.googleId) { %>
+            <img src="<%= user.profileImage %>" alt="<%= user.firstName %>" class="profile-image">
+          <% } %>
+          <a href="/logout" class="btn btn-outline-danger">Logout</a>
+        </div>
+      <% } %>
+    </div>
+  </header>
+</div>

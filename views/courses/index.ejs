@@ -1,0 +1,61 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+    <div class="row mb-4">
+      <div class="col">
+        <h1 class="welcome-message">Hello, <span class="user-name"><%= user?.firstName || "Student" %></span></h1>
+        <p class="text-muted">Explore and enroll in courses to enhance your skills</p>
+      </div>
+    </div>
+  
+    <% if (courses && courses.length > 0) { %>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <% courses.forEach(course => {
+          const student = (course.students || []).find(s => s.userId?.toString() === user._id.toString());
+          const completed = student ? (student.progress?.completedVideos?.length || 0) : 0;
+          const total = course.sections.reduce((sum, section) => sum + (section.videos?.length || 0), 0);
+          const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
+          const isEnrolled = !!student;
+        %>
+          <div class="col">
+            <div class="card shadow-sm h-100 border-0">
+              <div class="card-img-wrapper">
+                <img src="<%= course.image %>" alt="<%= course.title %>" class="card-img-top">
+              </div>
+  
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title mb-2 fw-bold text-truncate"><%= course.title %></h5>
+                <p class="text-muted mb-2">Instructor: <%= course.instructor || 'Unknown' %></p>
+                <p class="card-text flex-grow-1"><%= course.description?.substring(0, 100) || '' %>...</p>
+  
+                <% if (isEnrolled) { %>
+                    <div class="progress my-2">
+                        <div class="progress-bar bg-success" role="progressbar" data-progress="<%= progress %>" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <small class="text-muted mb-2"><%= completed %> / <%= total %> videos completed</small>
+                    <a href="/courses/<%= course._id %>" class="btn btn-outline-success mt-auto">Continue Course</a>
+                <% } else { %>
+                    <form action="/courses/<%= course._id %>/enroll" method="POST" class="mt-auto">
+                        <button type="submit" class="btn btn-outline-primary w-100">Enroll</button>
+                    </form>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="col text-center">
+        <img src="/img/empty-course.svg" class="img-fluid" alt="No courses available" />
+        <h4 class="mt-3">No courses available yet.</h4>
+      </div>
+    <% } %>
+</div>
+  
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".progress-bar").forEach(function (bar) {
+            const value = bar.getAttribute("aria-valuenow");
+            if (value) bar.style.width = value + "%";
+        });
+    });
+</script>
+  

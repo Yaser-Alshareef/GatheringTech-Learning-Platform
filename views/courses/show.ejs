@@ -1,0 +1,121 @@
+<div class="container-fluid course-content">
+    <div class="row">
+        <!-- Course Progress -->
+        <div class="col-12 mb-4">
+            <div class="course-progress">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0">Course Progress</h5>
+                    <span class="badge bg-primary"><%= progress %>% Complete</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-success" 
+                         role="progressbar" 
+                         data-progress="<%= progress %>"
+                         aria-valuenow="<%= progress %>" 
+                         aria-valuemin="0" 
+                         aria-valuemax="100">
+                    </div>
+                </div>
+                <small class="text-muted mt-2 d-block"><%= completed %> / <%= total %> videos completed</small>
+            </div>
+        </div>
+
+        <!-- Course Details -->
+        <div class="col-12 mb-4">
+            <div class="course-header">
+                <h1 class="mb-3"><%= course.title %></h1>
+                <p class="lead"><%= course.description %></p>
+                
+                <% if (!isEnrolled) { %>
+                    <form action="/courses/<%= course._id %>/enroll" method="POST" class="enroll-form">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                        </button>
+                    </form>
+                <% } else { %>
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle me-2"></i>You are enrolled in this course
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Course Content -->
+        <div class="col-12">
+            <% course.sections.forEach((section, sectionIndex) => { %>
+                <div class="section mb-4">
+                    <div class="section-header">
+                        <h3 class="section-title">
+                            <i class="fas fa-book me-2"></i>
+                            <%= section.title %>
+                        </h3>
+                        <% if (section.description) { %>
+                            <p class="section-description"><%= section.description %></p>
+                        <% } %>
+                    </div>
+
+                    <div class="section-videos">
+                        <% section.videos.forEach((video, videoIndex) => { 
+                            const isCompleted = completedVideos.some(v => v.videoId.toString() === video._id.toString());
+                            const videoNumber = sectionIndex * section.videos.length + videoIndex + 1;
+                        %>
+                            <div class="video-card mb-3 <%= isCompleted ? 'completed' : '' %>">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="video-checkbox me-3">
+                                                <% if (isEnrolled) { %>
+                                                    <form action="/courses/<%= course._id %>/complete" method="POST" class="video-complete-form">
+                                                        <input type="hidden" name="videoId" value="<%= video._id %>">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" 
+                                                                   type="checkbox" 
+                                                                   id="video-<%= video._id %>"
+                                                                   <%= isCompleted ? 'checked' : '' %>
+                                                                   onchange="this.form.submit()">
+                                                            <label class="form-check-label" for="video-<%= video._id %>">
+                                                                <span class="video-number"><%= videoNumber %></span>
+                                                            </label>
+                                                        </div>
+                                                    </form>
+                                                <% } else { %>
+                                                    <span class="video-number"><%= videoNumber %></span>
+                                                <% } %>
+                                            </div>
+                                            <div class="video-info flex-grow-1">
+                                                <h5 class="card-title mb-1">
+                                                    <%= video.title %>
+                                                </h5>
+                                                <p class="card-text text-muted mb-2">
+                                                    <i class="fas fa-clock me-1"></i>
+                                                    <%= video.duration %>
+                                                </p>
+                                            </div>
+                                            <% if (isCompleted) { %>
+                                                <div class="video-status">
+                                                    <span class="badge bg-success">
+                                                        <i class="fas fa-check me-1"></i>Completed
+                                                    </span>
+                                                </div>
+                                            <% } %>
+                                        </div>
+
+                                        <div class="video-preview mt-3">
+                                            <div class="ratio ratio-16x9">
+                                                <iframe 
+                                                    src="<%= video.videoUrl %>" 
+                                                    title="<%= video.title %>" 
+                                                    allowfullscreen>
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
