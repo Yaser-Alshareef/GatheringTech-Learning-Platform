@@ -35,5 +35,5 @@ Organized notes linked with specific course videos, improving the learning journ
 
 GatheringTech uses a classic MVC stack:
 
-[![Read the Wiki](https://img.shields.io/badge/Wiki-Read%20More-blue?style=flat-square)]([https://github.com/your-username/your-repo/wiki](https://github.com/Yaser-Alshareef/GatheringTech-Learning-Platform/wiki))
+[![Read the Wiki](https://img.shields.io/badge/Wiki-Read%20More-blue?style=flat-square)](https://github.com/Yaser-Alshareef/GatheringTech-Learning-Platform/wiki)
 
