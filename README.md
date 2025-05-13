@@ -31,6 +31,34 @@ Organized notes linked with specific course videos, improving the learning journ
 
 📢 Engage with students through course content.
 
+## Project Structure
+
+```
+GatheringTech/
+├── server/
+│   ├── config/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   └── utils/
+├──utils/
+│ 
+├── public/
+│   ├── css/
+│   └── images/
+├── views/
+│   ├── courses/
+│   ├── dashboard/
+│   ├── layouts/
+│   └── partials/
+├── app.js
+├──.gitignore
+├── package-lock.json
+├── package.json
+
+
+```
+
 ## Technical Details
 
 GatheringTech uses a classic MVC stack:
