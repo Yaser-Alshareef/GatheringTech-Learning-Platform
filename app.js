@@ -12,6 +12,8 @@ const flash = require('connect-flash');
 const app = express();
 const port = process.env.PORT || 5000;
 
+
+// here checking if the database is good
 // Connect to MongoDB
 connectDB();
 
