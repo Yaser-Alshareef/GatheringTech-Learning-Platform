@@ -6,7 +6,8 @@ const mainController = require('../controllers/mainController');
  * App Routes 
 */
 router.get('/', mainController.homepage);
-router.get('/about', mainController.about);
+router.get('/community', mainController.community);
+router.get('/about',mainController.about)
 
 
 
