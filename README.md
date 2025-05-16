@@ -57,6 +57,19 @@ GatheringTech/
 
 
 ```
+---
+## 🎥 Demo
+
+The following GIF demonstrates how the project works:
+
+![Demo](assets/yourgif.gif)
+
+This video shows:
+- How to start the application.
+- Main features in action.
+- User flow from start to finish.
+
+---
 
 ## Technical Details
 
