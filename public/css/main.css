@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Navigation */
+/* Navigation bar */
 .navbar, header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -124,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
 }
 
-/* Profile Image */
+/* Profile Images */
 .profile-image {
     width: 40px;
     height: 40px;
@@ -458,7 +458,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 0 0 0.2rem rgba(var(--primary-rgb), 0.25);
 }
 
-/* Course Content Styles */
+/* Course Content(Videos) Styles */
 .course-content {
     padding: 2rem;
     background-color: #f8f9fa;
@@ -761,4 +761,29 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9rem;
   padding: 0.4rem 0.8rem;
   border-radius: 0.5rem;
+}
+
+/* About Page Styles */
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--primary-rgb), 0.1);
+    border-radius: 12px;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.brand-gradient {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

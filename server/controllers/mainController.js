@@ -20,8 +20,8 @@ exports.homepage = async (req, res) => {
 */
 exports.about = async (req, res) => {
   const locals = {
-    title: "About - My Notes",
-    description: "Make Your Own Notes.",
+    title: "About - GatheringTech",
+    description: "Learn about GatheringTech - Where Minds & Technology Meet",
   }
   res.render('about', locals);
 }
