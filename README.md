@@ -39,8 +39,7 @@ GatheringTech/
 │   ├── config/
 │   ├── middleware/
 │   ├── models/
-│   ├── routes/
-│   └── utils/
+│   └──  routes/
 ├──utils/
 │ 
 ├── public/
