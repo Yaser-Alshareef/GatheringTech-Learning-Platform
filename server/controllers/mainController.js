@@ -36,5 +36,5 @@ exports.about = async (req, res) => {
     title: "About - GatheringTech",
     description: "Learn about GatheringTech - Where Minds & Technology Meet",
   }
-  res.render('About', locals);
+  res.render('about', locals);
 }
