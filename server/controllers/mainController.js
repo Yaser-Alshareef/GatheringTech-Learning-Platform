@@ -16,7 +16,7 @@ exports.homepage = async (req, res) => {
 
 /**
  * GET /
- * About 
+ * community 
 */
 exports.community = async (req, res) => {
   const locals = {
@@ -25,6 +25,11 @@ exports.community = async (req, res) => {
   }
   res.render('community', locals);
 }
+
+/**
+ * GET /
+ * About 
+*/
 
 exports.about = async (req, res) => {
   const locals = {
