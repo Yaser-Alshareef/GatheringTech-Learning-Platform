@@ -60,9 +60,10 @@ GatheringTech/
 ---
 ## 🎥 Demo
 
-The following GIF demonstrates how the project works:
+The following video demonstrates how the project works:
 
-![Demo](assets/yourgif.gif)
+[🎥 Watch the demo video](vid/Demo..mkv)
+
 
 This video shows:
 - How to start the application.
@@ -71,6 +72,11 @@ This video shows:
 
 ---
 
+## You can explore the live version of the project here:
+
+👉 [GatheringTech Learning Platform](https://gatheringtech-learning-platform.onrender.com)
+
+---
 ## Technical Details
 
 GatheringTech uses a classic MVC stack:
