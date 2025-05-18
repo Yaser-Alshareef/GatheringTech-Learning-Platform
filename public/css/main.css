@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Navigation */
+/* Navigation Bar */
 .navbar, header {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
