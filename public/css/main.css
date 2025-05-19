@@ -540,7 +540,7 @@ h1, h2, h3, h4, h5, h6 {
     width: var(--progress-width);
 }
 
-/* Course Show Styles */
+/* Styles for showing coures */
 .course-content {
     padding: 2rem;
     background-color: var(--light-bg);
@@ -667,7 +667,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Course Index Styles */
+/* Course  Index  Styles */
 .container-fluid-custom {
     padding: 2rem;
     max-width: 1600px;
